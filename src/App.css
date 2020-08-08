@@ -22,3 +22,18 @@ a:hover {
 .line-footer {
     border: 0.3px solid #FFF;
 }
+
+.logo-home {
+    max-width: 230px;
+    height: auto;
+}
+
+.text-black {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.fundo-home {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

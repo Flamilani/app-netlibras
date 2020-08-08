@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { PageArea } from './styled';
 import useApi from '../../helpers/API';
 import { doLogin } from '../../helpers/AuthHandler';
-import { Container, Card, Button, Form } from 'react-bootstrap';
+import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 
 import { ErrorMessage } from '../../components/MainComponents';
 
 const Login = () => {
-
 const api = useApi();    
 
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
-const [rememberPassword, setRememberPassword] = useState('');
+const [rememberPassword, setRememberPassword] = useState(false);
 const [disabled, setDisabled] = useState(false); 
 const [error, setError] = useState('');
 
@@ -31,38 +29,45 @@ const handleSubmit = async (e) => {
     }
 
 }
-
-
     return (
        <Container>
-           <PageArea>
-                {error &&
-                 <ErrorMessage>{error}</ErrorMessage>   
-                }          
+           <PageArea>              
 <Card className="login-form bg-secondary text-white">
   <Card.Header as="h5" className="text-center bg-dark text-white">Login</Card.Header>
-  <Card.Body>  
-    <Card.Text>
-    <Form>
-  <Form.Group controlId="formBasicEmail">
+  <Card.Body>   
+    <Form onSubmit={handleSubmit}>
+  <Form.Group>
     <Form.Label className="sr-only">Email</Form.Label>
-    <Form.Control type="email" placeholder="Email" required autofocus />
+    <Form.Control type="email" 
+    disabled={disabled} value={email}
+    onChange={e=>setEmail(e.target.value)}
+    placeholder="Email" required />
   </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
+  <Form.Group>
     <Form.Label className="sr-only">Senha</Form.Label>
-    <Form.Control type="password" placeholder="Senha" required />
+    <Form.Control type="password" disabled={disabled} 
+    value={password} onChange={e=>setPassword(e.target.value)} 
+    placeholder="Senha" required />
   </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Lembrar-me" />
+  <Form.Group>
+    <Form.Check disabled={disabled} checked={rememberPassword} 
+    onChange={()=> setRememberPassword(!rememberPassword)} 
+    type="checkbox" label="Lembrar-me" />
   </Form.Group>
-  <Link className="btn btn-danger btn-block" to="/perfils">Acessar</Link>
-</Form>
-    </Card.Text>
+  <Button disabled={disabled} className="btn btn-danger btn-block">Acessar</Button>
+</Form>  
   </Card.Body>
 </Card>
-           </PageArea>
-       </Container>
+{error &&
+      <ErrorMessage>
+        <Alert variant="danger" className="alert alert-danger alert-form">
+          {error}
+        </Alert>
+       </ErrorMessage>   
+}         
+     </PageArea>
+   </Container>
     );
 }
 

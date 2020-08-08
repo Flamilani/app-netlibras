@@ -18,17 +18,20 @@ const Footer = () => {
                 </Col>
                 <Col className="text-center">
                 <ResponsiveEmbed aspectRatio="21by9">
-                <img src={Logo} className="logo-play" />
+                <img src={Logo} className="logo-play" alt="Logo play" />
                 </ResponsiveEmbed>
                 </Col>
                 <Col>
-                    <Link className="mr-2"><FontAwesomeIcon icon={faInstagram} size="2x" /></Link>
-                    <Link className="mr-2"><FontAwesomeIcon icon={faFacebook} size="2x" /></Link>
-                    <Link><FontAwesomeIcon icon={faYoutube} size="2x" /></Link>
+                    <Link to="/" className="mr-2"><FontAwesomeIcon icon={faInstagram} size="2x" /></Link>
+                    <Link to="/" className="mr-2"><FontAwesomeIcon icon={faFacebook} size="2x" /></Link>
+                    <Link to="/"><FontAwesomeIcon icon={faYoutube} size="2x" /></Link>
                     <div className="mt-2">contato@netlibras.com.br</div>
                 </Col>
             </Row>
         </FooterArea>
+        <footer className="d-flex justify-content-center text-white mt-3">
+Todos os direitos reservados | Desenvolvido por Milani Designer
+</footer>
         </Container>
     );
 }

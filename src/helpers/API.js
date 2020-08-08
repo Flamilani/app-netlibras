@@ -1,28 +1,28 @@
-import Cookies from 'js-cookie';
+/* import Cookies from 'js-cookie';
 import qs from 'qs';
 
 const BASEAPI = 'http://localhost:3001';
 
-const apiFetchPost = async (endpoint, body) => {
+const apiFetchPost = async(endpoint, body) => {
 
-    if(!body.token) {
+    if (!body.token) {
         let token = Cookies.get('token');
-        if(token) {
+        if (token) {
             body.token = token;
         }
     }
 
     const res = await fetch(BASEAPI + endpoint, {
-        method:'POST',
-        headers:{
+        method: 'POST',
+        headers: {
             'Accept': 'application/json',
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify(body)
+        body: JSON.stringify(body)
     });
     const json = await res.json();
 
-    if(json.notallowed) {
+    if (json.notallowed) {
         window.location.href = '/signin';
         return;
     }
@@ -30,11 +30,11 @@ const apiFetchPost = async (endpoint, body) => {
     return json;
 }
 
-const apiFetchGet = async (endpoint, body = []) => {
+const apiFetchGet = async(endpoint, body = []) => {
 
-    if(!body.token) {
+    if (!body.token) {
         let token = Cookies.get('token');
-        if(token) {
+        if (token) {
             body.token = token;
         }
     }
@@ -42,22 +42,22 @@ const apiFetchGet = async (endpoint, body = []) => {
     const res = await fetch(`${BASEAPI + endpoint}?${qs.stringify(body)}`);
     const json = await res.json();
 
-    if(json.notallowed) {
+    if (json.notallowed) {
         window.location.href = '/signin';
         return;
     }
 
     return json;
-}
+} */
 
-const OlxAPI = {
-    login:async (email, password) => {
-        const json = await apiFetchPost(
-            '/user/signin',
-            {email, password}
-        );
-        return json;
+const API = {
+    login: async(email, password) => {
+        /*      const json = await apiFetchPost(
+                 '/user/signin', { email, password }
+             ); */
+        // return json;
+        return { error: 'Erro ao acessar' };
     }
 };
 
-export default () => OlxAPI;
+export default () => API;

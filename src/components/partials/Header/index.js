@@ -4,6 +4,7 @@ import { HeaderArea } from './styled';
 import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Logo from '../../../assets/imgs/logo_navbar.png'
 
 // import { isLogged } from '../../../helpers/AuthHandler';
 
@@ -13,9 +14,10 @@ const Header = () => {
     return (
         <HeaderArea>        
          <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-         <Container>
+         <Container fluid>
          <Navbar.Brand>
-           <Link to="/" className="navbar-brand">NETLIBRAS</Link>
+           <Link to="/" className="navbar-brand">
+             <img src={Logo} className="logo-header" alt="Logo NetLibras" /></Link>
          </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">

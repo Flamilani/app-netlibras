@@ -1,6 +1,5 @@
 import React from 'react';
 import { PageArea } from './styled';
-import { Link } from 'react-router-dom';
 import { Container, Card, Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import Perfil1 from '../../assets/imgs/perfil01.jpg'
 import ResponsiveEmbed from 'react-bootstrap/ResponsiveEmbed'
@@ -13,7 +12,7 @@ const Profiles = () => {
       <Card>
   <Card.Body>
   <ResponsiveEmbed bsPrefix="embed-responsive">
- <img src={Perfil1} />
+ <img src={Perfil1} alt="perfil" />
  </ResponsiveEmbed>
   </Card.Body>
 </Card>
@@ -23,7 +22,7 @@ const Profiles = () => {
     <Card>
   <Card.Body>
   <ResponsiveEmbed bsPrefix="embed-responsive">
- <img src={Perfil1} />
+ <img src={Perfil1} alt="perfil" />
  </ResponsiveEmbed>
   </Card.Body>
 </Card>
@@ -33,7 +32,7 @@ const Profiles = () => {
     <Card>
   <Card.Body>
   <ResponsiveEmbed bsPrefix="embed-responsive">
- <img src={Perfil1} />
+ <img src={Perfil1} alt="perfil" />
  </ResponsiveEmbed>
   </Card.Body>
 </Card>
@@ -43,7 +42,7 @@ const Profiles = () => {
     <Card>
   <Card.Body>
   <ResponsiveEmbed bsPrefix="embed-responsive">
- <img src={Perfil1} />
+ <img src={Perfil1} alt="perfil" />
  </ResponsiveEmbed>
   </Card.Body>
 </Card>

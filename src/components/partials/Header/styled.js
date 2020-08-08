@@ -9,4 +9,9 @@ margin-bottom: 40px;
     right: 40px;
     border-radius: 7px !important;
 }
+
+.logo-header {
+    max-width: 230px;
+    height: auto;
+}
 `;
