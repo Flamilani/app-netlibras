@@ -13,9 +13,11 @@ const Page = (props) => {
     return (
      <BrowserRouter>
       <Template>
+      <React.Fragment>
       <Header />      
       <Routes />  
       <Footer />
+      </React.Fragment>
       </Template>   
      </BrowserRouter>
     );

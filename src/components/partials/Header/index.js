@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  Container, Form, Input, Button,
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { HeaderArea } from './styled';
-import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Logo from '../../../assets/imgs/logo_navbar.png'
 
-// import { isLogged } from '../../../helpers/AuthHandler';
+import { isLogged } from '../../../helpers/AuthHandler';
 
 const Header = () => {
-   // let logged = false;
+   let logged = isLogged();
+   
+   const [collapsed, setCollapsed] = useState(true);
+   const toggleNavbar = () => setCollapsed(!collapsed);
     
     return (
         <HeaderArea>        
-         <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+  {/*        <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
          <Container fluid>
          <Navbar.Brand>
            <Link to="/" className="navbar-brand">
@@ -36,7 +42,36 @@ const Header = () => {
     </Form>
   </Navbar.Collapse>
   </Container>
-</Navbar>
+</Navbar> */}
+<Navbar color="dark" expand="md" className="text-white">
+<Container fluid>
+        <NavbarBrand tag={Link} to="/">          
+              <img src={Logo} className="logo-header" alt="Logo NetLibras" />
+        </NavbarBrand>
+        <NavbarToggler onClick={toggleNavbar} />
+        <Collapse isOpen={collapsed} navbar>
+          {logged && 
+        <Nav className="mr-auto" navbar>   
+         <Link className="nav-link" to="/lista">Minha Lista</Link>    
+           <Link className="nav-link" to="/series">Séries</Link>
+           <Link className="nav-link mr-4" to="/filmes">Filmes</Link>
+         </Nav>
+         }
+        {logged &&            
+      <Form inline>
+      <Input type="text" placeholder="Busca Títulos" />
+      <Button variant="light" className="posicao-busca"><FontAwesomeIcon icon={faSearch} /></Button>
+      </Form>
+           }
+           {!logged && 
+          <Nav className="ml-auto" navbar>    
+            <Link className="nav-link mr-4" to="/cadastro">Cadastra-se</Link>
+            <Link className="btn btn-danger" to="/login">Login</Link>             
+          </Nav> 
+             } 
+        </Collapse>
+        </Container>
+      </Navbar>
 </HeaderArea>
     );
 }

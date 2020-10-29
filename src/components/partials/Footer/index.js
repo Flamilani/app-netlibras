@@ -4,22 +4,19 @@ import { FooterArea } from './styled';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import ResponsiveEmbed from 'react-bootstrap/ResponsiveEmbed'
 import Logo from '../../../assets/imgs/google-play-badge.png'
 
 const Footer = () => {
     return (
-        <Container>
+        <Container fluid>
         <FooterArea>
             <hr className="line-footer" />
              <Row>
                 <Col className="text-left ml-5">Termo de Uso <br />
                     Política de Privacidade
                 </Col>
-                <Col className="text-center">
-                <ResponsiveEmbed aspectRatio="21by9">
-                <img src={Logo} className="logo-play" alt="Logo play" />
-                </ResponsiveEmbed>
+                <Col className="text-center">               
+                <img src={Logo} className="logo-play" alt="Logo play" />      
                 </Col>
                 <Col>
                     <Link to="/" className="mr-2"><FontAwesomeIcon icon={faInstagram} size="2x" /></Link>

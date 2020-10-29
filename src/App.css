@@ -37,3 +37,9 @@ a:hover {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
